@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
           form = document.querySelector('form'),
           input = document.querySelector('input');
           
-    let tasks = ['First item'];
+    let tasks = ['Add another thing to do'];
     
     // Functions definitions
 
@@ -27,6 +27,24 @@ window.addEventListener('DOMContentLoaded', () => {
             </li>
             `;
         } );
+
+        // Assign event listeners to delete buttons
+
+        const listItems = document.querySelectorAll('li');
+
+        listItems.forEach( (item, i) => {
+            item.addEventListener('click', e => {
+                if(e.target.classList.contains('delete')){
+                    tasks.splice(i,1);
+                    renderList();
+                }
+            });
+        });
+
+        if(tasks.length <= 0 ) {
+            list.innerHTML = '<p>You have no tasks &#x1F9D0;</p>';
+        }
+
     }
 
     // Handle form submitting new task
@@ -35,18 +53,16 @@ window.addEventListener('DOMContentLoaded', () => {
         if(+input.value !== 0){
             tasks.push(input.value);
             form.reset();   
-        }  
+        }   
         renderList();
     };
-
-    // Add event listeners
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTask();
     });
 
-    // Run functions
+    // Start
 
     renderList();
 

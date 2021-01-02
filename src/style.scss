@@ -1,33 +1,53 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    // border: 1px solid red;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     text-align:center;
     font-size: 3rem; 
+
+    @media (max-width: 400px) {
+        font-size: 12vw;
+    }
+    
 }
+
 
 ul {
     list-style: none;
     font-size: 1.1rem;
+    padding: 0;
+}
+
+li {
+    &:hover{
+        .delete{
+            opacity: 0.3;
+            display: inline;
+        }
+    }
 }
 
 .delete {
-    display: inline;
     font-size: 0.8rem;
     position: relative;
     bottom: 1px;
     color: red;
-    display: none;
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.delete:hover {
-    opacity: 1;
-}
-
-li:hover .delete {
     display: inline;
+    cursor: pointer;
+    opacity: 0;
+
+    &:hover {
+        opacity: 1 !important;
+    }
 }
+
