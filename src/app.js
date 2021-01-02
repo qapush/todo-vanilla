@@ -1,4 +1,4 @@
-'use strcit';
+'use strcit'; 
 
 window.addEventListener('DOMContentLoaded', () => {
     

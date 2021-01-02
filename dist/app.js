@@ -1,0 +1,2 @@
+window.addEventListener("DOMContentLoaded",(()=>{const e=document.querySelector("ul"),n=document.querySelector("form"),t=document.querySelector("input");let i=["First item"];function r(){e.innerHTML="",i.forEach((n=>{e.innerHTML+=`\n            <li>\n                <input type="checkbox"> \n                ${n}\n                <div class="delete">delete</div>\n            </li>\n            `}))}n.addEventListener("submit",(e=>{e.preventDefault(),0!=+t.value&&(i.push(t.value),n.reset()),r()})),r()}));
+//# sourceMappingURL=app.js.map
